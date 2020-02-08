@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class AppCoordinator: Coordinator {
+    
     var childCoordinators: [Coordinator] = []
     
     var navigationController: UINavigationController
@@ -17,17 +18,16 @@ class AppCoordinator: Coordinator {
     
     init(with window: UIWindow) {
         self.window = window
-     //   let navigation = BaseNavigationController()
-      //  self.navigationController = navigation
+        self.navigationController = UINavigationController()
     }
-    
-    func start(with presentation: Presentation) -> UINavigationController {
+
+    func start(with presentation: Presentation) -> UIViewController {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
-        let mainViewController = ViewController()
+        let mainCoordiantor = MainViewCoordinator(with: navigationController)
         
-        self.addChildCoordinator(mainViewController)
-        return mainViewController.start(with: presentation)
+        self.addChildCoordinator(mainCoordiantor)
+        return mainCoordiantor.start(with: presentation)
     }
 }

@@ -11,14 +11,13 @@ import UIKit
 enum Presentation {
     case present(animated: Bool)
     case push(animated: Bool)
-    case deepLink(path: String)
 }
 
 protocol Coordinator: class {
     var childCoordinators: [Coordinator] { get set }
-    var navigationController: BaseNavigationController { get set }
+    var navigationController: UINavigationController { get set }
     
-    func start(with presentation: Presentation) -> BaseNavigationController
+    func start(with presentation: Presentation) -> UIViewController
     func addChildCoordinator(_ coordinator: Coordinator)
     func removeChildCoordinator(_ coordinator: Coordinator)
     func popViewController(animated: Bool)

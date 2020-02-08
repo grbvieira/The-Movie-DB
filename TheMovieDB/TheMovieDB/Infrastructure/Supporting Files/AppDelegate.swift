@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
         let appCoordinator = AppCoordinator(with: window!)
-        let _ = appCoordinator.star(with: .push(animated: true))
+        let _ = appCoordinator.start(with: .push(animated: true))//appCoordinator.star(with: .push(animated: true))
         self.appCoordinator = appCoordinator
         return true
     }
