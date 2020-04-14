@@ -1,0 +1,32 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+def defaultPods 
+  use_frameworks!
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Moya/RxSwift'
+  pod 'Kingfisher'
+end
+
+def testPods
+  use_frameworks!
+  pod 'Quick'
+  pod 'Nimble'
+end
+
+
+target 'MovieDB' do
+  defaultPods
+end
+
+target  'MovieDBTests' do
+  inherit! :search_paths
+  testPods
+end
+
+target  'MovieDBUITests' do
+  inherit! :search_paths
+  testPods
+end
+
